@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Environment variables (Supabase keys live here, never commit them)
+.env
+.env.local
+
+# Build output
+dist/
+
+# Mac / logs
+.DS_Store
+*.log
