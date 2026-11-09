@@ -1,9 +1,9 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
-
-dotenv.config();
+import authRoutes from "./routes/auth.js";
+import notesRoutes from "./routes/notes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -22,6 +22,9 @@ app.use(cookieParser());
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
+
+app.use("/api/auth", authRoutes);
+app.use("/api/notes", notesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
